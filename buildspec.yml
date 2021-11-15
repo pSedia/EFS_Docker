@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      android: 29
+      
+  pre_build:
+    commands:
+      - docker build -t helloworld_build .
+  build:
+    commands:
+      - docker images
+      - docker run helloworld_build
+      - docker save -o helloworld_build.tar helloworld_build
+
+  post_build:
+    commands:
+      - echo "Sono in Post Build"
+      - docker run helloworld_build echo "sono in run in post build"
+      
+      
+artifacts:
+  files:
+    - '**/*.tar'
+      
