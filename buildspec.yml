@@ -15,7 +15,7 @@ phases:
   build:
     commands:
       - cd /efs/source_code
-      - source build/envsetup.sh
+      - build/envsetup.sh
       - lunch rpi4-eng
       - make ramdisk systemimage vendorimage -j10
 
