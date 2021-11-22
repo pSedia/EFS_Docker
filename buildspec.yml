@@ -10,21 +10,19 @@ phases:
       - pwd
       - cd /efs
       - ls /efs
-      - cd /efs/kernel_source
+      - cd /efs/source_code
       
   build:
     commands:
-      - cd /efs/kernel_source
-      - build/build.sh
+      - cd /efs/source_code
+      - source build/envsetup.sh
+      - lunch rpi4-eng
+      - make ramdisk systemimage vendorimage -j10
 
   post_build:
     commands:
       - echo "Sono in Post Build"
       - ls 
-      - ls /efs/kernel_source
+      - ls /efs/source_code
       
-      
-artifacts:
-  files:
-   # - '**/*.tar'
       
