@@ -10,16 +10,16 @@ phases:
       - pwd
       - cd /efs
       - ls /efs
-     #- cd /efs/source_code
+      - cd /efs/source_code
       
   build:
     commands:
       - ls /efs
-     #- cd /efs/source_code
-    # - apt-get install git-core gnupg flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 libncurses5 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig -y
-    # - . build/envsetup.sh
-     #- lunch rpi4-eng
-     #- make ramdisk systemimage vendorimage -j10
+      - cd /efs/source_code
+     #- apt-get install git-core gnupg flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 libncurses5 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig -y
+      - . build/envsetup.sh
+      - lunch rpi4-eng
+      - make ramdisk systemimage vendorimage -j10
 
   post_build:
     commands:
