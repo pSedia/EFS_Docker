@@ -7,7 +7,12 @@ phases:
       
   pre_build:
     commands:
-      - docker build -t helloworld_build .
+      - pwd
+      - cd /efs
+      - ls /efs
+      - cd /efs/kernel_souurces
+     
+      
   build:
     commands:
       - docker images
