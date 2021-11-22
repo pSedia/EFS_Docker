@@ -10,22 +10,21 @@ phases:
       - pwd
       - cd /efs
       - ls /efs
-      - cd /efs/kernel_souurces
-     
+      - cd /efs/kernel_source
       
   build:
     commands:
-      - docker images
-      - docker run helloworld_build
-      - docker save -o helloworld_build.tar helloworld_build
+      - cd /efs/kernel_source
+      - build/build.sh
 
   post_build:
     commands:
       - echo "Sono in Post Build"
-      - docker run helloworld_build echo "sono in run in post build"
+      - ls 
+      - ls /efs/kernel_source
       
       
 artifacts:
   files:
-    - '**/*.tar'
+   # - '**/*.tar'
       
